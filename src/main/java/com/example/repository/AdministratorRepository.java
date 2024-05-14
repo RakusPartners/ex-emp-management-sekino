@@ -24,11 +24,11 @@ public class AdministratorRepository {
      * @param administrator
      */
     public void insert(Administrator administrator){
-        if(administrator.getId() == null){
+        
         SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
-        String sql = "INSERT INTO administrators(name,mail_address,password) VALUES(:name,:mailAddress,:password)";
-        template.update(sql, param);
-        }
+        String insertSql = "INSERT INTO administrators(name,mail_address,password) VALUES(:name,:mailAddress,:password)";
+        template.update(insertSql, param);
+        
     }
 
     /**
@@ -38,11 +38,11 @@ public class AdministratorRepository {
      * @param password
      * @return
      */
-    public Administrator findBy(String mailAddress,String password){
+    public Administrator findByMailAddressAndPassword(String mailAddress,String password){
     
         SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress).addValue("password", password);
 
-        String sql = "SELECT id,name,mail_address,password FROM administrators WHERE mail_address LIKE '%:mailAddless%' AND password LIKE '%:password%'"; 
+        String sql = "SELECT id,name,mail_address,password FROM administrators WHERE mail_address LIKE '%:mailAddress%' AND password LIKE '%:password%'"; 
 
         java.util.List<Administrator> administratorList
         = template.query(sql, param, ADMINISTRATOR_ROW_MAPPER);
