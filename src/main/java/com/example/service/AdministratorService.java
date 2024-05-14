@@ -18,12 +18,17 @@ public class AdministratorService {
     @Autowired
     private com.example.repository.AdministratorRepository AdministratorRepository;
 
-    public Administrator login(String mailAddres,String password){
-        return AdministratorRepository.findByMailAddressAndPassword(mailAddres, password);
-    }
-
+    
     public void insert(Administrator administrator){
         AdministratorRepository.insert(administrator);
         
     }
+
+
+    public Administrator login(String mailAddress,String password){
+        return AdministratorRepository.findByMailAddressAndPassword(mailAddress, password);
+    }
+
+
+   
 }

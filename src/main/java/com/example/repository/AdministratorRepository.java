@@ -42,7 +42,7 @@ public class AdministratorRepository {
     
         SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress).addValue("password", password);
 
-        String sql = "SELECT id,name,mail_address,password FROM administrators WHERE mail_address LIKE '%:mailAddress%' AND password LIKE '%:password%'"; 
+        String sql = "SELECT id,name,mail_address,password FROM administrators WHERE mail_address= :mailAddress AND password= :password"; 
 
         java.util.List<Administrator> administratorList
         = template.query(sql, param, ADMINISTRATOR_ROW_MAPPER);
