@@ -1,11 +1,14 @@
 package com.example.domain;
+
+import java.time.LocalDate;
+
 public class Employee {
 
     private Integer ID;/** Id */
     private String name; /** 名前 */
     private String image;/** 画像 */
     private String gender;/** 性別 */
-    private java.util.Date hireDate;/** 入社日 */
+    private LocalDate hireDate;/** 入社日 */
     private String mailAddress;/** メールアドレス */
     private String zipCode;/** 郵便番号 */
     private String address;/** 住所 */
@@ -47,12 +50,8 @@ public class Employee {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public java.util.Date getHireDate() {
-        return hireDate;
-    }
-    public void setHireDate(java.util.Date hireDate) {
-        this.hireDate = hireDate;
-    }
+    
+    
     public String getMailAddress() {
         return mailAddress;
     }
@@ -94,6 +93,12 @@ public class Employee {
     }
     public void setDependentsCount(Integer dependentsCount) {
         this.dependentsCount = dependentsCount;
+    }
+    public LocalDate getHireDate() {
+        return hireDate;
+    }
+    public void setHireDate(LocalDate hireDate) {
+        this.hireDate = hireDate;
     }
 
 

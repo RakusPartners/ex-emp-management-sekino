@@ -95,7 +95,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <!-- <tr>
                 <td>
                   <a href="detail.html">
                     <span>山田太郎</span>
@@ -107,8 +107,23 @@
                 <td>
                   <span>3人</span>
                 </td>
+              </tr> -->
+              <tr th:each="employee:${employeeList}">
+                <td>
+                  <a th:href="@{/employee/showDetail(id=${employee.ID})}">
+                    <span th:text="${employee.name}"></span>
+                  </a>
+                </td>
+                <td>
+                  <span th:text="${employee.hireDate}"></span>
+                  <!-- <span>2016/12/1</span> -->
+                </td>
+                <td>
+                  <span th:text="${employee.dependentsCount}"></span>人
+                  <!-- <span>3人</span> -->
+                </td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td>
                   <a href="detail.html">
                     <span>山田太郎</span>
@@ -120,20 +135,7 @@
                 <td>
                   <span>3人</span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="detail.html">
-                    <span>山田太郎</span>
-                  </a>
-                </td>
-                <td>
-                  <span>2016/12/1</span>
-                </td>
-                <td>
-                  <span>3人</span>
-                </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
 
